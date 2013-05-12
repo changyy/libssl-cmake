@@ -17,8 +17,8 @@ set(CONFIG_ADD_OPTIONS "--prefix=${CMAKE_BINARY_DIR}")
 		add_custom_command(
 			OUTPUT BUILD_LIBSSL
 			#COMMAND curl http://www.openssl.org/source/${TOOL_LIBSSL_SOURCE} | tar -xzvf - 
-			COMMAND test -e ${CMAKE_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE} || wget http://www.openssl.org/source/${TOOL_LIBSSL_SOURCE} -O ${CMAKE_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
-			COMMAND tar -xzvf ${CMAKE_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
+			COMMAND test -e ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE} || wget http://www.openssl.org/source/${TOOL_LIBSSL_SOURCE} -O ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
+			COMMAND tar -xzvf ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
 			COMMAND cd ${TOOL_LIBSSL_DIR} && ${target_platform_preconfigure_options} ./config os/complier:${target_platform}-gcc ${CONFIG_ADD_OPTIONS} && make -j1 && make install
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 			COMMENT "Build libssl"
@@ -27,8 +27,8 @@ set(CONFIG_ADD_OPTIONS "--prefix=${CMAKE_BINARY_DIR}")
 		add_custom_command(
 			OUTPUT BUILD_LIBSSL
 			#COMMAND curl http://www.openssl.org/source/${TOOL_LIBSSL_SOURCE} | tar -xzvf - 
-			COMMAND test -e ${CMAKE_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE} || wget http://www.openssl.org/source/${TOOL_LIBSSL_SOURCE} -O ${CMAKE_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
-			COMMAND tar -xzvf ${CMAKE_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
+			COMMAND test -e ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE} || wget http://www.openssl.org/source/${TOOL_LIBSSL_SOURCE} -O ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
+			COMMAND tar -xzvf ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_LIBSSL_SOURCE}
 			COMMAND cd ${TOOL_LIBSSL_DIR} && ./config ${CONFIG_ADD_OPTIONS} && make -j1 && make install
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 			COMMENT "Build libssl" 
